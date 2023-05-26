@@ -29,6 +29,11 @@ const StyledSideBar = styled.div`
     flex-direction: row;
     gap: 20px;
   }
+  .light-mode-text {
+    font-weight: 500;
+    font-size: 16px;
+    color: #7a797d;
+  }
 `;
 const StyledSideBarItem = styled.div`
   display: flex;
@@ -78,7 +83,7 @@ export const SideBar = () => {
       <div className="other">OTHER</div>
       <div className="light-mode">
         <img src={LightModeIcon} alt="" />
-        <div>Light Mode</div>
+        <div className="light-mode-text">Light Mode</div>
         <div className="toggle"></div> {/* Code pen toggle */}
       </div>
 

@@ -56,7 +56,7 @@ const StyledDashboardContent = styled.div`
     flex: 2;
     background: #caeae6;
   }
-  .right {
+  .right1 {
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -100,6 +100,7 @@ const StyledDashboardContent = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-bottom: 24px;
   }
   .top-creators-title-text {
     font-weight: 700;
@@ -113,6 +114,7 @@ const StyledDashboardContent = styled.div`
   .top-creators {
     background: #ffffff;
     border-radius: 16px;
+    padding: 24px;
   }
 `;
 
@@ -120,25 +122,63 @@ const StyledTrendingAuctionItem = styled.div`
   flex: 1;
   background: #ffffff;
   border-radius: 16px;
+  padding: 12px;
+  .item-image {
+    padding-bottom: 25px;
+  }
   .title-and-likes {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-bottom: 12px;
+  }
+  .title {
+    font-weight: 700;
+    font-size: 24px;
+    color: #27262e;
+  }
+  .likes {
+    font-weight: 400;
+    font-size: 16px;
+    color: #747475;
+  }
+  .account {
+    font-weight: 400;
+    font-size: 16px;
+    color: #747475;
+  }
+  .status {
+    font-weight: 700;
+    font-size: 16px;
+    color: #747475;
   }
   .avatar-and-account {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    padding-bottom: 12px;
   }
   .status-and-price {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-bottom: 15px;
   }
   .price {
     display: flex;
     flex-direction: row;
     gap: 8px;
+  }
+  .price-number {
+    font-weight: 700;
+    font-size: 16px;
+    color: #27262e;
+  }
+  .currency-unit {
+    color: #747475;
+  }
+  .item-info {
+    padding: 10px;
   }
 `;
 
@@ -172,8 +212,8 @@ const TrendingAuctionItem = ({
           <div className="status">{status}</div>
           <div className="price">
             <img src={coinImage} alt="" />
-            <span>{price}</span>
-            <span>ETH</span>
+            <span className="price-number">{price}</span>
+            <span className="currency-unit">ETH</span>
           </div>
         </div>
       </div>
@@ -190,8 +230,10 @@ const DashboardContent = () => {
             Discover, Create and Sell Your Own NFT.
           </div>
           <div className="buttons">
-            <Button></Button>
-            <Button></Button>
+            <Button textColor="#5429FF">Discover</Button>
+            <Button bgColor="none" textColor="#FFFFFF" boderColor="#FFFFFF">
+              Create
+            </Button>
           </div>
         </div>
         <div className="trending-auctions">
@@ -228,15 +270,15 @@ const DashboardContent = () => {
           </div>
         </div>
       </div>
-      <div className="right">
+      <div className="right1">
         <div className="cards">
           <div className="cards-row">
-            <Card></Card>
-            <Card></Card>
+            <Card title="Revenue" amount="5.00" percent={12.3}></Card>
+            <Card title="Spending" amount="2.00" percent={8.1}></Card>
           </div>
           <div className="cards-row">
-            <Card></Card>
-            <Card></Card>
+            <Card title="ROI" content="+14.02" percent={-5.1}></Card>
+            <Card title="Estimated" amount="7.00" percent={3.2}></Card>
           </div>
         </div>
         <div className="top-creators">
@@ -280,6 +322,7 @@ const StyledCreator = styled.div`
   display: flex;
   flex-direction: row;
   gap: 16px;
+  padding-bottom: 22px;
   .ranking-number {
     font-weight: 700;
     font-size: 16px;
@@ -313,7 +356,9 @@ const Creator = ({ rankingNumber, avatar, name, account }) => {
         <div className="creator-name">{name}</div>
         <div className="creator-account">{account}</div>
       </div>
-      <Button></Button>
+      <Button width="77px" height="32px" bgColor="rgba(84, 41, 255, 0.1);">
+        Follow
+      </Button>
     </StyledCreator>
   );
 };

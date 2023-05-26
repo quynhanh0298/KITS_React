@@ -49,6 +49,9 @@ const StyledSearchBox = styled.div`
     border: none;
     width: 80%;
   }
+  input:focus {
+    outline: none;
+  }
 `;
 
 const SearchBox = () => {
