@@ -1,7 +1,12 @@
+import { CommonLayout } from "components/layout/CommonLayout";
 import React from "react";
 
 const Settings = () => {
-  return <div>Settings</div>;
+  return (
+    <CommonLayout>
+      <div>Settings</div>
+    </CommonLayout>
+  );
 };
 
 export default Settings;

@@ -10,6 +10,10 @@ import { ReactComponent as WalletIcon } from "asserts/wallet-icon.svg";
 import { ReactComponent as FavouritesIcon } from "asserts/favourites-icon.svg";
 import { ReactComponent as HistoryIcon } from "asserts/history-icon.svg";
 import { ReactComponent as SettingsIcon } from "asserts/setting-icon.svg";
+import EthIcon from "asserts/top-up-balance-eth.svg";
+import { Button } from "components/common/Button";
+import TopUpButtonIcon from "asserts/top-up-balance-icon.svg";
+import TopUpButtonArrow from "asserts/top-up-balance-arrow.svg";
 // import DashboardIcon from "asserts/dashboard-icon.svg";
 // import MarketIcon from "asserts/market-icon.svg";
 // import ActiveBidsIcon from "asserts/active-bids-icon.svg";
@@ -36,6 +40,12 @@ const StyledSideBar = styled.div`
     text-transform: uppercase;
   }
   .light-mode {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+  }
+  .light-mode-title {
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -87,6 +97,82 @@ const SideBarItem = ({ logo, name, to }) => {
   );
 };
 
+const StyledYourBalanceItem = styled.div`
+  width: 228px;
+  height: 220px;
+  background: linear-gradient(228.89deg, #5429ff 1.12%, #bbaaff 100%);
+  border-radius: 16px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .your-balance-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .eth {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .eth-text {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #ffffff;
+  }
+  .top-up-balance {
+    font-weight: 700;
+    font-size: 14px;
+    color: #27262e;
+  }
+  .your-balance-text {
+    font-weight: 500;
+    font-size: 12px;
+    color: #e0dee6;
+  }
+  .your-balance-number {
+    font-weight: 700;
+    font-size: 30px;
+    color: #ffffff;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 196px;
+  height: 49px;
+  border-radius: 12px;
+`;
+
+const YourBalanceItem = ({ balanceNumber }) => {
+  return (
+    <StyledYourBalanceItem>
+      <div className="your-balance-content">
+        <div className="your-balance-text">Your Balance</div>
+        <div className="your-balance-number">{balanceNumber}</div>
+        <div className="eth">
+          <div className="eth-icon">
+            <img src={EthIcon} alt="" />
+          </div>
+          <div className="eth-text">ETH</div>
+        </div>
+        <StyledButton>
+          <img src={TopUpButtonIcon} alt="" />
+          <div className="top-up-balance">Top Up Balance</div>
+          <img src={TopUpButtonArrow} alt="" />
+        </StyledButton>
+      </div>
+    </StyledYourBalanceItem>
+  );
+};
+
 export const SideBar = () => {
   return (
     <StyledSideBar>
@@ -110,12 +196,14 @@ export const SideBar = () => {
 
       <div className="other">OTHER</div>
       <div className="light-mode">
-        <img src={LightModeIcon} alt="" />
-        <div className="light-mode-text">Light Mode</div>
+        <div className="light-mode-title">
+          <img src={LightModeIcon} alt="" />
+          <div className="light-mode-text">Light Mode</div>
+        </div>
         <Toggle zoom={0.15}></Toggle>
       </div>
 
-      <Card></Card>
+      <YourBalanceItem balanceNumber="1,034.02"></YourBalanceItem>
     </StyledSideBar>
   );
 };

@@ -66,6 +66,7 @@ const StyledDashboardContent = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
   .trending-auctions-title {
     font-weight: 700;
@@ -323,6 +324,8 @@ const StyledCreator = styled.div`
   flex-direction: row;
   gap: 16px;
   padding-bottom: 22px;
+  justify-content: center;
+  align-items: center;
   .ranking-number {
     font-weight: 700;
     font-size: 16px;
@@ -335,7 +338,7 @@ const StyledCreator = styled.div`
   }
   .creator-name {
     font-weight: 700;
-    font-size: 16px;
+    font-size: 15px;
     color: #27262e;
   }
   .creator-account {

@@ -1,7 +1,12 @@
+import { CommonLayout } from "components/layout/CommonLayout";
 import React from "react";
 
 const MyPortfolio = () => {
-  return <div>MyPortfolio</div>;
+  return (
+    <CommonLayout>
+      <div>MyPortfolio</div>
+    </CommonLayout>
+  );
 };
 
 export default MyPortfolio;
